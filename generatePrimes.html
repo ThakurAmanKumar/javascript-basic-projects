@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prime Numbers Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 400px;
+            margin: 40px auto;
+            padding: 20px;
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h2 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        button {
+            padding: 12px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            text-align: left;
+        }
+        a {
+            display: block;
+            margin-top: 20px;
+            color: #0066cc;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Prime Numbers Generator</h2>
+        <div class="input-group">
+            <input type="number" id="count" placeholder="Enter count of prime numbers" min="1">
+        </div>
+        <button onclick="generatePrimes()">Generate</button>
+        <div id="result"></div>
+        <a href="index.html">Back to Homepage</a>
+    </div>
+
+    <script>
+        function isPrime(num) {
+            if (num <= 1) return false;
+            for (let i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i === 0) return false;
+            }
+            return true;
+        }
+
+        function generatePrimes() {
+            const count = parseInt(document.getElementById('count').value);
+            
+            if (isNaN(count) || count < 1) {
+                document.getElementById('result').textContent = "Please enter a valid positive number.";
+                return;
+            }
+
+            const primes = [];
+            let num = 2;
+            
+            while (primes.length < count) {
+                if (isPrime(num)) {
+                    primes.push(num);
+                }
+                num++;
+            }
+
+            document.getElementById('result').innerHTML = `<strong>Prime Numbers:</strong> ${primes.join(', ')}`;
+        }
+    </script>
+    <script src="backgroundChanger.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Age Group Determiner</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 400px;
+            margin: 40px auto;
+            padding: 20px;
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h2 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        button {
+            padding: 12px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+        }
+        a {
+            display: block;
+            margin-top: 20px;
+            color: #0066cc;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Age Group Determiner</h2>
+        <div class="input-group">
+            <input type="number" id="age" placeholder="Enter age" min="0">
+        </div>
+        <button onclick="determineAgeGroup()">Check Age Group</button>
+        <p id="result"></p>
+        <a href="index.html">Back to Homepage</a>
+    </div>
+
+    <script>
+        function determineAgeGroup() {
+            const age = parseInt(document.getElementById('age').value);
+
+            if (isNaN(age) || age < 0) {
+                document.getElementById('result').textContent = "Please enter a valid age.";
+                return;
+            }
+
+            let group;
+
+            if (age <= 12) {
+                group = 'Child';
+            } else if (age <= 19) {
+                group = 'Teenager';
+            } else if (age <= 59) {
+                group = 'Adult';
+            } else {
+                group = 'Senior Citizen';
+            }
+
+            document.getElementById('result').textContent = `Age Group: ${group}`;
+        }
+    </script>
+    <script src="backgroundChanger.js"></script>
+
+</body>
+</html>
