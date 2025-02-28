@@ -11,8 +11,8 @@ A collection of small yet useful JavaScript programs showcasing fundamental logi
 
 These programs demonstrate basic problem-solving techniques using JavaScript.
 
-## Live Demo
-Link: [JavaScript Basic Projects](https://javascript-basic-projects-iota.vercel.app/)
+## 🚀 Demo
+Check out the live demo: [Live Demo](https://javascript-basic-projects-iota.vercel.app)
 
 ## Installation
 1. Clone the repository:
